@@ -33,7 +33,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<muleVersion>4.3</muleVersion>
+						<muleVersion>4.3.0</muleVersion>
 						<username>kailash8765</username>
 						<password>Jerry@1996</password>
 						<applicationName>cicdemo</applicationName>
