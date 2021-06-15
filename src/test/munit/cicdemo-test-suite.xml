@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="cicdemo-test-suite.xml" />
+	<munit:before-suite name="cicdemo-test-suiteBefore_Suite" doc:id="5872e3dc-9500-4895-a862-e714092d9861" />
+	<munit:test name="cicdemo-test-suite-cicdemoFlowTest" doc:id="28b4d2e6-4413-4ebb-bb2f-ae24eca02bbd" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to cicdemoFlow" doc:id="d36a3ca2-46cc-4265-9c93-4da72a2aed9e" name="cicdemoFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="a8da6e2a-8187-49bc-82be-47d59e0cc0e2" expression="#[payload]" is='#[MunitTools::both(MunitTools::notNullValue(),MunitTools::withMediaType("application/json"))]'/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

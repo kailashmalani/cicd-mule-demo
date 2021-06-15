@@ -7,14 +7,21 @@ pipeline
 		{
 			steps
 			{
-				bat 'mvn clean install'
+				bat 'mvn clean install -DskipTests=true'
+			}
+		}
+		stage('Munit Testing Application')
+		{
+			steps
+			{
+				bat 'mvn test'
 			}
 		}
 		stage('Deploy application to cloudhub')
 		{
 			steps
 			{
-				bat 'mvn package deploy -DmuleDeploy'
+				bat 'mvn package deploy -DmuleDeploy -DskipTests=true'
 			}
 		}
 	}
